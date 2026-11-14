@@ -73,6 +73,47 @@
   .equation { font-family: "Alfa Slab One", serif; font-size: 1.4rem; color: var(--red); text-align: center; margin: 1.2rem 0; }
   .equation small { display: block; font-family: "Source Sans 3", sans-serif; font-size: .9rem; color: var(--muted); }
 
+  /* Origin story animation */
+  .origin { margin: 2.5rem auto 0; max-width: 760px; text-align: center; }
+  .stage { position: relative; display: flex; justify-content: center; align-items: flex-start; gap: clamp(1rem, 6vw, 4rem); padding: 1rem 0 0; min-height: calc(clamp(96px, 24vw, 170px) + 4rem); }
+  .parent, .result { display: flex; flex-direction: column; align-items: center; }
+  .parent { transition: transform .9s cubic-bezier(.55,0,.35,1), opacity .3s; }
+  .circle { width: clamp(96px, 24vw, 170px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 6px solid #fff; box-shadow: 0 6px 18px rgba(0,0,0,.18); background: #e6e1d3; display: flex; align-items: center; justify-content: center; font-family: "Alfa Slab One", serif; font-size: 2.6rem; color: var(--navy); }
+  .circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .dad .circle { border-color: var(--red); }
+  .mom .circle { border-color: var(--navy); }
+  .pname { font-family: "Alfa Slab One", serif; font-size: clamp(1.2rem, 3.5vw, 1.7rem); margin-top: .6rem; color: var(--navy); }
+  .pname .rest { transition: opacity .5s; }
+  .pname .keep { transition: color .4s, text-shadow .4s; }
+  .op { font-family: "Alfa Slab One", serif; font-size: clamp(2rem, 6vw, 3rem); color: var(--red); align-self: center; margin-top: -2.5rem; transition: opacity .4s; }
+  .result { position: absolute; left: 50%; top: 1rem; transform: translateX(-50%) scale(0); opacity: 0; transition: transform .6s cubic-bezier(.2,1.6,.4,1), opacity .2s; }
+  .result .circle { border-color: var(--gold); width: clamp(110px, 27vw, 190px); }
+  .result .pname { font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
+  .result .pname .m { color: var(--red); }
+  .stage.highlight .rest { opacity: .2; }
+  .stage.highlight .dad .keep { color: var(--red); text-shadow: 0 0 12px rgba(193,18,31,.35); }
+  .stage.highlight .mom .keep { color: var(--navy); text-shadow: 0 0 12px rgba(20,33,61,.35); }
+  .stage.converge .rest, .stage.converge .op { opacity: 0; }
+  .stage.converge .dad { transform: translateX(var(--dx, 0)); }
+  .stage.converge .mom { transform: translateX(var(--dx, 0)); }
+  .stage.poof .parent { opacity: 0; transform: translateX(var(--dx, 0)) scale(.3); }
+  .stage.reveal .result { transform: translateX(-50%) scale(1); opacity: 1; }
+  .burst { position: absolute; left: 50%; top: calc(1rem + clamp(48px, 12vw, 85px)); font-size: 1.6rem; pointer-events: none; animation: burst .9s ease-out forwards; }
+  @keyframes burst { from { transform: translate(-50%, -50%) scale(.4); opacity: 1; } to { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.2); opacity: 0; } }
+
+  .dna { max-width: 460px; margin: 1.5rem auto 0; background: #fff; border: 3px solid var(--navy); border-radius: 12px; padding: 1.1rem 1.4rem; text-align: left; opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .5s; }
+  .dna.show { opacity: 1; transform: none; }
+  .dna h3 { font-size: 1rem; letter-spacing: .08em; color: var(--red); margin-bottom: .8rem; }
+  .dna-row { display: grid; grid-template-columns: 9.5rem 1fr 3.5rem; align-items: center; gap: .6rem; margin-bottom: .45rem; font-weight: 600; font-size: .95rem; }
+  .dna-row .bar { height: 12px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .dna-row .bar i { display: block; height: 100%; width: 0; background: var(--navy); border-radius: 6px; transition: width 1s ease-out; }
+  .dna-row:nth-child(2) .bar i { background: var(--red); }
+  .dna-row.gr .bar i { background: var(--gold); }
+  .dna-row .pct { text-align: right; }
+  .dna small { display: block; color: var(--muted); margin-top: .6rem; font-size: .82rem; }
+  .replay { margin-top: 1rem; background: none; border: 2px solid var(--navy); color: var(--navy); border-radius: 999px; padding: .45rem 1.1rem; font-weight: 700; font-family: inherit; cursor: pointer; }
+  .replay:hover { background: var(--navy); color: #fff; }
+
   /* Platform */
   .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
   .plank { background: #fff; border-radius: 12px; padding: 1.4rem; border-top: 6px solid var(--red); box-shadow: 0 4px 14px rgba(0,0,0,.06); }
@@ -174,6 +215,34 @@
   <div class="wrap">
     <div class="kicker">Meet the Candidate</div>
     <h2>A Dog of the People. Specifically, These People.</h2>
+
+    <div class="origin">
+      <div class="kicker">The Science of Marley</div>
+      <div class="stage" id="stage">
+        <div class="parent dad">
+          <div class="circle"><img class="headshot" src="photos/dad.jpg" alt="Marius" data-fallback="M"></div>
+          <div class="pname"><span class="keep">Mar</span><span class="rest">ius</span></div>
+        </div>
+        <div class="op">+</div>
+        <div class="parent mom">
+          <div class="circle"><img class="headshot" src="photos/mom.jpg" alt="Shirley" data-fallback="S"></div>
+          <div class="pname"><span class="rest">Shir</span><span class="keep">ley</span></div>
+        </div>
+        <div class="result">
+          <div class="circle"><img class="headshot" src="photos/marley-face.jpg" alt="Marley" data-fallback="🐶"></div>
+          <div class="pname"><span class="m">MAR</span>LEY</div>
+        </div>
+      </div>
+      <div class="dna" id="dna">
+        <h3>🧬 OFFICIAL ANCESTRY RESULTS</h3>
+        <div class="dna-row"><span>Marius</span><span class="bar"><i data-w="50"></i></span><span class="pct">50%</span></div>
+        <div class="dna-row"><span>Shirley</span><span class="bar"><i data-w="50"></i></span><span class="pct">50%</span></div>
+        <div class="dna-row"><span>Good Boy</span><span class="bar"><i data-w="100"></i></span><span class="pct">100%</span></div>
+        <div class="dna-row gr"><span>Golden Retriever</span><span class="bar"><i data-w="0"></i></span><span class="pct">0%</span></div>
+        <small>Results certified by the Save Marley Campaign Lab. Yes, it adds up to 200%. Science is hard.</small>
+      </div>
+      <button class="replay" id="replay">▶ Watch again</button>
+    </div>
     <div class="bio">
       <figure>
         <img class="photo" src="photos/marley-2.jpg" alt="Marley looking distinguished" data-label="Candidate portrait">
@@ -425,6 +494,75 @@
     }
   }
   yesBtn.addEventListener("click", sign);
+
+  // ===== Origin story: Marius + Shirley = Marley =====
+  document.querySelectorAll("img.headshot").forEach(img => {
+    const fallback = () => { img.parentElement.textContent = img.dataset.fallback; };
+    if (img.complete && img.naturalWidth === 0) fallback();
+    else img.addEventListener("error", fallback);
+  });
+
+  const stage = document.getElementById("stage");
+  const dna = document.getElementById("dna");
+  const dad = stage.querySelector(".dad");
+  const mom = stage.querySelector(".mom");
+  let timers = [];
+
+  function resetOrigin() {
+    timers.forEach(clearTimeout); timers = [];
+    stage.className = "stage";
+    dna.classList.remove("show");
+    dna.querySelectorAll(".bar i").forEach(b => b.style.width = "0");
+  }
+
+  function finalOrigin() {
+    stage.className = "stage highlight converge poof reveal";
+    dna.classList.add("show");
+    dna.querySelectorAll(".bar i").forEach(b => b.style.width = b.dataset.w + "%");
+  }
+
+  function playOrigin() {
+    resetOrigin();
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+    at(300, () => stage.classList.add("highlight"));
+    at(1300, () => {
+      const center = stage.getBoundingClientRect().left + stage.clientWidth / 2;
+      [dad, mom].forEach(el => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--dx", (center - (r.left + r.width / 2)) + "px");
+      });
+      stage.classList.add("converge");
+    });
+    at(2250, () => {
+      stage.classList.add("poof");
+      for (let i = 0; i < 14; i++) {
+        const b = document.createElement("span");
+        b.className = "burst";
+        b.textContent = ["🐾", "✨", "❤️"][i % 3];
+        const angle = (i / 14) * Math.PI * 2;
+        const dist = 90 + Math.random() * 60;
+        b.style.setProperty("--x", Math.cos(angle) * dist + "px");
+        b.style.setProperty("--y", Math.sin(angle) * dist + "px");
+        stage.appendChild(b);
+        setTimeout(() => b.remove(), 1000);
+      }
+    });
+    at(2450, () => stage.classList.add("reveal"));
+    at(3300, () => {
+      dna.classList.add("show");
+      dna.querySelectorAll(".bar i").forEach(b => b.style.width = b.dataset.w + "%");
+    });
+  }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) finalOrigin();
+  else {
+    const io = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { playOrigin(); io.disconnect(); }
+    }, { threshold: 0.6 });
+    io.observe(stage);
+  }
+  document.getElementById("replay").addEventListener("click", () => reduceMotion ? finalOrigin() : playOrigin());
 </script>
 </body>
 </html>
