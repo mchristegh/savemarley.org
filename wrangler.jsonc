@@ -1,0 +1,8 @@
+{
+  // Static site: no Worker script, Cloudflare just serves the files.
+  "name": "savemarley",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./"
+  }
+}
