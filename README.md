@@ -13,6 +13,7 @@ Put your photos in the `photos` folder with these names (JPG):
 | marley-8.jpg | Campaign trail: resting |
 | dad.jpg | Marius headshot (Science of Marley animation) |
 | mom.jpg | Shirley headshot (Science of Marley animation) |
+| dino.jpg / nino.jpg | The opposing candidates in "Meet the Opposition" (already included) |
 | marley-face.jpg | Marley headshot, the "result" of the animation |
 
 Headshots are cropped into circles, so square-ish photos with the face centered work best.

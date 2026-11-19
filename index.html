@@ -147,6 +147,28 @@
   td small { display: block; color: var(--muted); font-weight: 400; }
   .score { text-align: center; font-family: "Alfa Slab One", serif; font-size: 1.3rem; margin-top: 1.2rem; color: var(--navy); }
 
+  /* Opposition */
+  .opposition { background: #2b2b2b; color: #eee; }
+  .opposition h2 { color: #fff; }
+  .opposition .kicker { color: #ff6b6b; }
+  .opp-intro { text-align: center; max-width: 620px; margin: 0 auto; opacity: .85; }
+  .opp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-top: 2rem; }
+  .opp-card { background: #1a1a1a; border: 3px solid #444; border-radius: 12px; overflow: hidden; }
+  .opp-photo { position: relative; }
+  .opp-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; filter: grayscale(1) contrast(1.1); transition: filter .4s; }
+  .opp-card:hover .opp-photo img { filter: grayscale(.2); }
+  .stamp { position: absolute; top: 1rem; right: -.4rem; transform: rotate(8deg); background: var(--red); color: #fff; font-family: "Alfa Slab One", serif; padding: .3rem .9rem; font-size: 1.1rem; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,.4); }
+  .opp-body { padding: 1.3rem 1.4rem 1.5rem; }
+  .opp-body h3 { font-size: 1.8rem; color: #fff; margin-bottom: .2rem; }
+  .opp-body .aka { color: #aaa; font-style: italic; margin: 0 0 1rem; }
+  .opp-body ul { margin: 0; padding: 0; list-style: none; }
+  .opp-body li { padding: .55rem 0 .55rem 1.8rem; border-top: 1px solid #333; position: relative; }
+  .opp-body li::before { content: "🚩"; position: absolute; left: 0; top: .5rem; }
+  .opp-paid { margin-top: 1rem; font-size: .8rem; color: #888; border: 1px solid #555; padding: .4rem .6rem; text-align: center; }
+  .ticket { max-width: 640px; margin: 2rem auto 0; text-align: center; background: #1a1a1a; border: 3px dashed #ff6b6b; border-radius: 12px; padding: 1.2rem 1.4rem; }
+  .ticket strong { font-family: "Alfa Slab One", serif; font-weight: 400; color: #ff6b6b; font-size: 1.3rem; display: block; margin-bottom: .4rem; }
+  .opp-disclaimer { text-align: center; color: #999; font-size: .9rem; margin-top: 1.5rem; }
+
   /* Trail gallery */
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
   .gallery figure { margin: 0; background: #fff; padding: .7rem; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
@@ -202,6 +224,7 @@
     <li><a href="#platform">Platform</a></li>
     <li><a href="#letter">A Letter</a></li>
     <li><a href="#compare">Marley vs. New Dog</a></li>
+    <li><a href="#opposition">The Opposition</a></li>
     <li><a href="#endorsements">Endorsements</a></li>
     <li><a href="#petition">Sign the Petition</a></li>
   </ul>
@@ -374,6 +397,61 @@
       </tbody>
     </table>
     <p class="score">Final score: Marley 7, New Dog 0</p>
+  </div>
+</section>
+
+<!-- ============ OPPOSITION ============ -->
+<section id="opposition" class="opposition">
+  <div class="wrap">
+    <div class="kicker">Opposition Research</div>
+    <h2>Meet the Opposition</h2>
+    <p class="opp-intro">Our campaign has learned that two challengers have been spotted in Missy's browser tabs. Voters deserve to know the truth. The following facts were gathered by Marley, who is completely unbiased.</p>
+    <div class="opp-grid">
+
+      <div class="opp-card">
+        <div class="opp-photo">
+          <img src="photos/dino.jpg" alt="Dino, opposing candidate">
+          <div class="stamp">NOT MARLEY</div>
+        </div>
+        <div class="opp-body">
+          <h3>Dino</h3>
+          <p class="aka">Running on the "Scruffy Outsider" ticket</p>
+          <ul>
+            <li><strong>Named after a dinosaur.</strong> Dinosaurs are extinct, Missy. Is that the kind of commitment you're looking for?</li>
+            <li><strong>Full food bowl, right behind him, untouched.</strong> Who ignores a full bowl? Marley would have finished it, plus the bowl. Something is very wrong here.</li>
+            <li><strong>Hair situation: unresolved.</strong> Has clearly never been to a groomer. Or a comb. Or a light breeze.</li>
+            <li><strong>Already doing the sad eyes.</strong> Amateur. Marley perfected the sad eyes years ago, around Ears Day.</li>
+          </ul>
+          <div class="opp-paid">This message was paid for by Marley, who has never left a single crumb in a bowl.</div>
+        </div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-photo">
+          <img src="photos/nino.jpg" alt="Nino, opposing candidate">
+          <div class="stamp">NOT MARLEY</div>
+        </div>
+        <div class="opp-body">
+          <h3>Nino</h3>
+          <p class="aka">Running on the "Look At My Eyebrows" ticket</p>
+          <ul>
+            <li><strong>Those eyebrows.</strong> Who is he judging? Is it you, Missy? It's definitely you.</li>
+            <li><strong>Has to be carried everywhere.</strong> Marley walks on his own four legs, mostly toward bunnies.</li>
+            <li><strong>Name is basically "Dino" with one letter changed.</strong> Low effort. Marley's name was handcrafted from two whole parents.</li>
+            <li><strong>Has a beard.</strong> What is he hiding under there? Crumbs, probably. Stolen crumbs. The Crumb Bum has jurisdiction over all crumbs.</li>
+          </ul>
+          <div class="opp-paid">This message was paid for by Marley, the only candidate with a clean-shaven chin. Roughly.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ticket">
+      <strong>🚨 BREAKING: Dino and Nino?!</strong>
+      Their names rhyme. Our campaign can only assume they are running together on a two-dog ticket. Missy, one new dog would already be a disaster. TWO would be a coup.
+    </div>
+
+    <p class="opp-disclaimer">Disclaimer from the campaign: Dino and Nino are probably very good boys, and they deserve wonderful homes. Just… other homes. 🐾</p>
   </div>
 </section>
 
