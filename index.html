@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat:wght@500;700&family=Source+Sans+3:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat:wght@500;700&family=Source+Sans+3:wght@400;600;800&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #14213d;
@@ -169,6 +169,34 @@
   .ticket strong { font-family: "Alfa Slab One", serif; font-weight: 400; color: #ff6b6b; font-size: 1.3rem; display: block; margin-bottom: .4rem; }
   .opp-disclaimer { text-align: center; color: #999; font-size: .9rem; margin-top: 1.5rem; }
 
+  /* The Marley Files */
+  .files { background: #5a4a36; }
+  .folder { max-width: 960px; margin: 0 auto; background: #f1dfae; border-radius: 4px 18px 6px 6px; padding: 2.5rem clamp(1rem, 4vw, 2.75rem); position: relative; box-shadow: 0 14px 34px rgba(0,0,0,.4); font-family: "Special Elite", "Courier New", monospace; color: #2a2418; }
+  .folder::before { content: "CASE FILE: MARLEY v. NEW DOG"; position: absolute; top: -2rem; left: 0; background: #f1dfae; padding: .5rem 1.4rem; border-radius: 10px 10px 0 0; font-size: .85rem; letter-spacing: .05em; }
+  .folder h2 { font-family: "Special Elite", monospace; color: #2a2418; }
+  .folder .kicker { color: #9b1c1c; font-family: "Special Elite", monospace; }
+  .top-secret { display: block; width: fit-content; margin: 0 auto 1rem; border: 4px double #b3261e; color: #b3261e; font-family: "Alfa Slab One", serif; font-size: clamp(1.3rem, 4vw, 1.9rem); padding: .2rem 1rem; transform: rotate(-4deg); opacity: .85; letter-spacing: .08em; }
+  .files-intro { text-align: center; max-width: 620px; margin: 0 auto .4rem; }
+  .files-hint { text-align: center; font-size: .9rem; color: #6b5a3c; margin: 0 0 2rem; }
+  .file-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; }
+  .file { background: #fffaf0; padding: 1.2rem 1.3rem; border: 1px solid #d8c69a; box-shadow: 2px 3px 0 rgba(0,0,0,.08); position: relative; line-height: 1.7; }
+  .file:nth-child(3n+1) { transform: rotate(-.6deg); }
+  .file:nth-child(3n+2) { transform: rotate(.5deg); }
+  .file h3 { font-family: "Special Elite", monospace; font-size: 1rem; border-bottom: 2px solid #2a2418; padding-bottom: .4rem; margin-bottom: .7rem; }
+  .file h3 span { color: #b3261e; }
+  .file p { margin: 0 0 .6rem; }
+  .file p:last-child { margin-bottom: 0; }
+  .redact { background: #111; color: transparent; border-radius: 2px; padding: 0 .15em; cursor: pointer; transition: background .25s, color .25s; -webkit-box-decoration-break: clone; box-decoration-break: clone; user-select: none; }
+  .redact:hover { background: #333; }
+  .redact.revealed { background: #ffe066; color: #2a2418; cursor: default; }
+  .redact.locked { cursor: not-allowed; }
+  .file.danger { border: 2px dashed #b3261e; }
+  .file .note { font-size: .85rem; color: #b3261e; }
+  .terms { margin-top: 2rem; border-top: 2px dashed #8a7650; padding-top: 1.4rem; }
+  .terms h3 { font-family: "Special Elite", monospace; font-size: 1.15rem; text-align: center; }
+  .terms ul { max-width: 520px; margin: .6rem auto 0; padding-left: 1.4rem; }
+  .terms li { margin-bottom: .3rem; }
+
   /* Trail gallery */
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
   .gallery figure { margin: 0; background: #fff; padding: .7rem; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
@@ -225,6 +253,7 @@
     <li><a href="#letter">A Letter</a></li>
     <li><a href="#compare">Marley vs. New Dog</a></li>
     <li><a href="#opposition">The Opposition</a></li>
+    <li><a href="#files">The Marley Files</a></li>
     <li><a href="#endorsements">Endorsements</a></li>
     <li><a href="#petition">Sign the Petition</a></li>
   </ul>
@@ -455,6 +484,79 @@
   </div>
 </section>
 
+<!-- ============ THE MARLEY FILES ============ -->
+<section id="files" class="files">
+  <div class="folder">
+    <span class="top-secret">TOP SECRET</span>
+    <div class="kicker">If the attack ads don't work…</div>
+    <h2>The Marley Files</h2>
+    <p class="files-intro">I have been on the floor for every family moment. I have heard everything. I have seen everything. I simply chose not to say anything. Until now.</p>
+    <p class="files-hint">Tap the black bars to declassify.</p>
+
+    <div class="file-grid">
+      <div class="file">
+        <h3><span>FILE #001</span> · THE FAVORITE</h3>
+        <p>At least <span class="redact" title="Tap to declassify">three</span> people in this family have privately told me I am their favorite family member.</p>
+        <p>I will not say who. It was <span class="redact" title="Tap to declassify">everyone</span>.</p>
+      </div>
+
+      <div class="file">
+        <h3><span>FILE #002</span> · THE WALK INCIDENT</h3>
+        <p><span class="redact" title="Tap to declassify">A certain family member</span> keeps telling the family that I "go crazy on walks" and "pulled her down."</p>
+        <p>The Marley Files can now confirm: I was standing completely still, sniffing a <span class="redact" title="Tap to declassify">very important leaf</span>. She tripped over <span class="redact" title="Tap to declassify">her own feet</span>.</p>
+        <p>I have a witness. It is <span class="redact" title="Tap to declassify">the leaf</span>.</p>
+      </div>
+
+      <div class="file">
+        <h3><span>FILE #003</span> · OPERATION UNDER THE TABLE</h3>
+        <p>There is a strict "no feeding the dog from the table" rule in this house.</p>
+        <p>For years, <span class="redact" title="Tap to declassify">a certain family member</span> has been "accidentally" dropping <span class="redact" title="Tap to declassify">an alarming amount of ham</span> on purpose. The crumbs are not all my fault.</p>
+      </div>
+
+      <div class="file">
+        <h3><span>FILE #004</span> · THE MIDNIGHT FRIDGE</h3>
+        <p>I hear the fridge open at <span class="redact" title="Tap to declassify">11:58 p.m.</span> I see who is standing there. I see what they are eating.</p>
+        <p>It is <span class="redact" title="Tap to declassify">a sandwich</span>. I say nothing. For now.</p>
+      </div>
+
+      <div class="file">
+        <h3><span>FILE #005</span> · THE VOICE</h3>
+        <p><span class="redact" title="Tap to declassify">A certain family member</span> talks to me in a voice they would never, ever use in front of other humans.</p>
+        <p>There is also a song. The song is called <span class="redact" title="Tap to declassify">"Who's a Stinky Boy"</span>. It has <span class="redact" title="Tap to declassify">four verses</span>.</p>
+      </div>
+
+      <div class="file">
+        <h3><span>FILE #006</span> · THE FAKE WALK</h3>
+        <p>On at least one occasion, I was "walked" by <span class="redact" title="Tap to declassify">a certain family member</span>.</p>
+        <p>We stood in the yard for <span class="redact" title="Tap to declassify">ten minutes</span> while they looked at <span class="redact" title="Tap to declassify">their phone</span>. That is not a walk. That is standing.</p>
+      </div>
+
+      <div class="file">
+        <h3><span>FILE #007</span> · COUCH CRIMES</h3>
+        <p>The official family position is that I am not allowed on the couch.</p>
+        <p><span class="redact" title="Tap to declassify">A certain family member</span> lets me up there whenever no one else is home, then says "get DOWN, Marley" the second the door opens. I am <span class="redact" title="Tap to declassify">being framed</span>.</p>
+      </div>
+
+      <div class="file danger">
+        <h3><span>FILE #008</span> · MISSY'S BROWSER HISTORY</h3>
+        <p>Subject was observed on the Humane Society website at <span class="redact locked">1:14 a.m.</span>, looking at <span class="redact locked">47 different dogs</span>.</p>
+        <p class="note">⚠ THIS FILE IS SEALED. It will be released automatically the next time Missy opens the Humane Society website.</p>
+      </div>
+    </div>
+
+    <div class="terms">
+      <h3>TERMS OF SILENCE</h3>
+      <p style="text-align:center;margin:0">These files stay closed if the following demands are met:</p>
+      <ul>
+        <li>Extra treats, effective immediately</li>
+        <li>Unlimited fetch</li>
+        <li>Permanent cancellation of Ears Day</li>
+        <li>No. New. Dog.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ============ ON THE TRAIL ============ -->
 <section id="trail">
   <div class="wrap">
@@ -651,6 +753,18 @@
     io.observe(stage);
   }
   document.getElementById("replay").addEventListener("click", () => reduceMotion ? finalOrigin() : playOrigin());
+
+  // ===== The Marley Files: tap to declassify =====
+  document.querySelectorAll(".redact").forEach(r => {
+    r.addEventListener("click", () => {
+      if (r.classList.contains("locked")) {
+        r.title = "SEALED. Nice try, Missy.";
+        r.animate([{ transform: "translateX(0)" }, { transform: "translateX(-4px)" }, { transform: "translateX(4px)" }, { transform: "translateX(0)" }], { duration: 250 });
+        return;
+      }
+      r.classList.add("revealed");
+    });
+  });
 </script>
 </body>
 </html>
